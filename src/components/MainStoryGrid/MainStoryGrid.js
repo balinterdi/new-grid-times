@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { QUERIES } from '../../constants';
+import { QUERIES, COLORS } from '../../constants';
 
 import {
   MAIN_STORY,
@@ -71,10 +71,24 @@ const Wrapper = styled.div`
 
 const MainStorySection = styled.section`
   grid-area: main-story;
+
+  @media(${QUERIES.tabletAndUp}) {
+    border-right: 1px solid ${COLORS.gray['300']};
+    padding-right: 2rem;
+  }
+
+  @media(${QUERIES.desktopAndUp}) {
+    padding-right: 3rem;
+  }
 `;
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
+
+  @media(${QUERIES.desktopAndUp}) {
+    border-right: 1px solid ${COLORS.gray['300']};
+    padding-right: 3rem;
+  }
 `;
 
 const StoryList = styled.div`

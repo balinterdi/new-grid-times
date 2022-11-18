@@ -52,6 +52,19 @@ const Wrapper = styled.div`
     'secondary-stories'
     'opinion-stories'
     'advertisement';
+
+  @media(${QUERIES.tabletAndUp}) {
+    grid-template-areas:
+      "main-story secondary-stories"
+      "advertisement advertisement"
+      "opinion-stories opinion-stories";
+  }
+
+  @media(${QUERIES.desktopAndUp}) {
+    grid-template-areas:
+      "main-story secondary-stories opinion-stories"
+      "main-story advertisement advertisement"
+  }
   gap: 48px;
   margin-bottom: 48px;
 `;

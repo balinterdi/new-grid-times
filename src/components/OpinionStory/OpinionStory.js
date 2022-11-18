@@ -27,7 +27,6 @@ const Link = styled.a`
       border: none;
     }
   }
-
 `;
 
 const Wrapper = styled.article`

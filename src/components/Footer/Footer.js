@@ -5,6 +5,8 @@ import MaxWidthWrapper from '../MaxWidthWrapper';
 
 import VisuallyHidden from '../VisuallyHidden';
 
+import { QUERIES } from '../../constants';
+
 const Footer = () => {
   return (
     <Wrapper>
@@ -39,7 +41,7 @@ const Footer = () => {
           </Social>
         </TopRow>
         <MainNavArea>
-          <nav>
+          <DiscoverContent>
             <MainNavHeading>Discover Content</MainNavHeading>
             <MainNavList>
               <li>
@@ -58,8 +60,8 @@ const Footer = () => {
                 <a href="/oped">Opinion and Editorial</a>
               </li>
             </MainNavList>
-          </nav>
-          <nav>
+          </DiscoverContent>
+          <RegionalWebsites>
             <MainNavHeading>Regional Websites</MainNavHeading>
             <MainNavList>
               <li>
@@ -78,8 +80,8 @@ const Footer = () => {
                 <a href="/au">New Grid Australia</a>
               </li>
             </MainNavList>
-          </nav>
-          <nav>
+          </RegionalWebsites>
+          <Careers>
             <MainNavHeading>Careers</MainNavHeading>
             <MainNavList>
               <li>
@@ -92,8 +94,8 @@ const Footer = () => {
                 <a href="/culture">Company Culture</a>
               </li>
             </MainNavList>
-          </nav>
-          <nav>
+          </Careers>
+          <Legal>
             <MainNavHeading>Legal and Privacy</MainNavHeading>
             <MainNavList>
               <li>
@@ -112,7 +114,7 @@ const Footer = () => {
                 <a href="/tos">Terms and Conditions</a>
               </li>
             </MainNavList>
-          </nav>
+          </Legal>
         </MainNavArea>
       </MaxWidthWrapper>
       <SubfooterWrapper>
@@ -144,6 +146,18 @@ const TopRow = styled.div`
   font-size: 0.875rem;
   border-bottom: 1px solid var(--color-gray-700);
   padding: 24px 0;
+
+  @media(${QUERIES.tabletAndUp}) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  @media(${QUERIES.desktopAndUp}) {
+    justify-content: flex-end;
+  }
+
+
 `;
 
 const Social = styled.div`
@@ -156,6 +170,12 @@ const Social = styled.div`
 
   path {
     stroke-width: 1.5px;
+  }
+  flex-direction: row-reverse;
+
+  @media(${QUERIES.tabletAndUp}) {
+    gap: 10px;
+    justify-content: center;
   }
 `;
 
@@ -170,6 +190,33 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+  @media(${QUERIES.tabletAndUp}) {
+    display: grid;
+    grid-template-areas:
+      'discover-content regional-websites careers'
+      'legal legal legal';
+    text-align: left;
+
+  @media(${QUERIES.desktopAndUp}) {
+    grid-template-areas:
+      'discover-content regional-websites careers legal';
+  }
+`;
+
+const DiscoverContent = styled.nav`
+  grid-area: discover-content;
+`;
+
+const RegionalWebsites = styled.nav`
+  grid-area: regional-websites;
+`;
+
+const Careers = styled.nav`
+  grid-area: careers;
+`;
+
+const Legal = styled.nav`
+  grid-area: legal;
 `;
 
 const MainNavHeading = styled.h2`
@@ -196,6 +243,9 @@ const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media(${QUERIES.desktopAndUp}) {
+    align-items: flex-start;
+  }
 `;
 
 const Logo = styled.a`

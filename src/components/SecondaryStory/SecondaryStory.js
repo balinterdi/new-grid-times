@@ -4,26 +4,24 @@ import { COLORS, QUERIES } from '../../constants';
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <Link href={`/story/${id}`}>
+    <a href={`/story/${id}`}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
       </Wrapper>
-    </Link>
+    </a>
   );
 };
 
-const Link = styled.a`
+/*
+  This was put on the top-level `a` tag
   @media(${QUERIES.tabletAndUp}) {
     &:first-child {
       margin-top: -1rem;
     }
   }
-  & + a {
-    border-top: 1px solid ${COLORS.gray['300']};
-  }
-`;
+*/
 
 const Wrapper = styled.article`
   display: grid;
